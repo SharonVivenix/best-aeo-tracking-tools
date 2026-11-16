@@ -25,7 +25,7 @@ Agents live in [aeolog/agents.py](aeolog/agents.py). Each one needs a token, a v
 
 * Affiliate or tracking links.
 * Review scores and star ratings.
-* Dependencies in `aeolog`. It stays standard library only and must run on Python 3.9.
+* Dependencies in `aeolog`. It stays standard library only and must run on Python 3.10.
 
 ## Code
 

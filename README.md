@@ -25,7 +25,7 @@ Sixteen tools are filed in [tools.yaml](tools.yaml) by the steps they read. Fift
 │   ├── aiclicks_cited.py    builds that CSV from the AIclicks API
 │   └── make_sample.py       seeded generator for the two sample files
 ├── tests/                   22 unittest cases, no network
-└── .github/workflows/       table check, tests on Python 3.9 and 3.12, link check
+└── .github/workflows/       table check, tests on Python 3.10 and 3.14, link check
 ```
 
 ## Four taps on one request path
@@ -109,7 +109,7 @@ So a full picture is a stack of two things. One of them can be free if you can g
 
 ## Read the crawl tap yourself
 
-`aeolog` needs Python 3.9 or newer and nothing else. It reads the combined log format that nginx, Apache and most CDN log exports use.
+`aeolog` needs Python 3.10 or newer and nothing else. It reads the combined log format that nginx, Apache and most CDN log exports use.
 
 ```bash
 python -m aeolog examples/access.example.log
