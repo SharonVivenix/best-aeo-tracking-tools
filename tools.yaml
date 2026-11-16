@@ -1,0 +1,198 @@
+# One entry per tool. render_table.py builds both README tables from this file.
+#
+# taps: where in the request path the tool takes a measurement.
+#   crawl    AI agent requests in your server logs
+#   fanout   the sub queries an engine runs before it answers
+#   answer   mentions and citations inside the generated answer
+#   click    visits that arrive from an AI answer
+# The "Blind to" column is the complement of `taps`. Never type it.
+#
+# price is the monthly entry price as a number, or null when there is no
+# public number. Facts come from the AIclicks roundup at
+# https://aiclicks.io/blog/best-aeo-tracking-tools (updated 13 October 2026),
+# AIclicks plan and API facts from docs.aiclicks.io. Confirm before you buy.
+
+- id: aiclicks
+  name: AIclicks
+  url: https://aiclicks.io
+  taps: [fanout, answer, click]
+  capture: Daily prompt runs on each engine you pick
+  engines: 3 on Starter, you pick
+  currency: "$"
+  price: 59
+  price_note: 3 day trial
+  volume: 30 prompts, run daily
+  dev: REST API and MCP server on Pro and Business, CSV export on every plan
+
+- id: airops
+  name: AirOps
+  url: https://www.airops.com/
+  taps: [answer]
+  capture: Not published
+  engines: ChatGPT, Gemini, Perplexity, Google AI
+  currency: "$"
+  price: 0
+  volume: 100 prompts, 20k tasks
+  dev: Bulk workflows, direct CMS publishing
+
+- id: cognizo
+  name: Cognizo
+  url: https://www.cognizo.ai/
+  taps: [answer, click]
+  capture: UI scraping of the rendered answer
+  engines: 3 of 10 on Core
+  currency: "$"
+  price: 149
+  price_note: billed yearly
+  volume: 50 prompts
+  dev: API on Enterprise, OpenAI Conversions API for ads
+
+- id: promptwatch
+  name: Promptwatch
+  url: https://promptwatch.com/
+  taps: [crawl, answer]
+  capture: Crawler logs joined to cited pages
+  engines: 11 platforms
+  currency: "$"
+  price: 95
+  volume: 50 prompts, 6,000 responses
+  dev: Publishes to Webflow, Framer and WordPress
+
+- id: gauge
+  name: Gauge
+  url: https://www.withgauge.com/
+  taps: [answer]
+  capture: Not published
+  engines: ChatGPT, Gemini, Perplexity, AI Overviews
+  currency: "$"
+  price: null
+  price_note: Custom
+  volume: Not stated
+  dev: Analytics integrations
+
+- id: surfer
+  name: Surfer AI Tracker
+  url: https://surferseo.com/ai-tracker/
+  taps: [fanout, answer]
+  capture: Not published
+  engines: ChatGPT at entry, 5 platforms on Pro
+  currency: "$"
+  price: 99
+  volume: Not stated at entry, 50 prompts on Pro
+  dev: CMS integration on Pro
+
+- id: rankprompt
+  name: Rank Prompt
+  url: https://rankprompt.com
+  taps: [answer]
+  capture: Not published
+  engines: ChatGPT, Gemini, Perplexity
+  currency: "$"
+  price: 49
+  volume: 150 credits
+  dev: Not stated
+
+- id: trackmyvisibility
+  name: Track My Visibility
+  url: https://trackmyvisibility.com/
+  taps: [answer]
+  capture: Not published
+  engines: 3 platforms on Discover
+  currency: "$"
+  price: 89
+  price_note: $5 one time trial
+  volume: 50 prompts a day
+  dev: Not stated
+
+- id: qwairy
+  name: Qwairy
+  url: https://www.qwairy.co/
+  taps: [crawl, answer]
+  capture: Not published
+  engines: ChatGPT, Perplexity, Gemini, Claude
+  currency: "$"
+  price: 79
+  volume: Not stated
+  dev: Not stated
+
+- id: seranking
+  name: SE Ranking AI Search Toolkit
+  url: https://seranking.com
+  taps: [answer]
+  capture: Not published
+  engines: AI Overviews, Gemini, ChatGPT
+  currency: "$"
+  price: 65
+  price_note: source table says $89
+  volume: Scales by keywords
+  dev: Not stated
+
+- id: jetoctopus
+  name: JetOctopus
+  url: https://jetoctopus.com/
+  taps: [crawl]
+  capture: Your server logs, 40+ bots
+  engines: None, it reads bots and not answers
+  currency: "$"
+  price: 349
+  price_note: 7 day trial
+  volume: Unlimited seats and projects
+  dev: Logs, crawl and Search Console data joined
+
+- id: productrank
+  name: ProductRank.ai
+  url: https://productrank.ai
+  taps: [answer]
+  capture: Not published
+  engines: Several models
+  currency: "$"
+  price: 0
+  volume: Not stated
+  dev: Not stated
+
+- id: gumshoe
+  name: Gumshoe
+  url: https://www.gumshoe.ai
+  taps: [answer]
+  capture: Not published
+  engines: Not stated
+  currency: "$"
+  price: null
+  price_note: $0.10 per conversation
+  volume: Pay as you go
+  dev: Not stated
+
+- id: aiseotracker
+  name: AI SEO Tracker
+  url: https://aiseotracker.com/
+  taps: [answer]
+  capture: Not published
+  engines: ChatGPT, Gemini, Claude, Perplexity, Copilot
+  currency: "$"
+  price: 79
+  price_note: 7 day trial
+  volume: 50 prompts, 250 responses, weekly
+  dev: Agent skills over MCP for Cursor, Claude Code, Codex
+
+- id: scrunch
+  name: Scrunch
+  url: https://scrunch.com/
+  taps: [answer]
+  capture: Not published
+  engines: ChatGPT only on Explorer
+  currency: "$"
+  price: 100
+  volume: 100 prompts
+  dev: Agent Experience Platform serves pages to AI agents
+
+- id: ahrefs
+  name: Ahrefs Brand Radar
+  url: https://ahrefs.com/brand-radar
+  taps: [answer]
+  capture: Shared prompt database
+  engines: Major models
+  currency: "$"
+  price: 0
+  price_note: basic features
+  volume: Not your own prompt list
+  dev: Not stated
