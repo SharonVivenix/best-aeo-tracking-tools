@@ -6,7 +6,7 @@ Export your own cited pages from the AIclicks API into the CSV that aeolog joins
     python examples/aiclicks_cited.py --domain-id <uuid> --days 14 > cited.csv
     python -m aeolog access.log --gaps --cited cited.csv
 
-Uses GET /api/v1/citations as documented at https://docs.aiclicks.io/list-citations
+Uses GET /api/v1/citations from the AIclicks REST API.
 with is_brand_owned=true, once per engine that publishes its own retrieval
 agents. API access needs a Pro or Business plan. Find the domain id with
 GET /api/v1/domains. Standard library only.

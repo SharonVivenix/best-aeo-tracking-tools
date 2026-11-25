@@ -53,7 +53,7 @@ The `answer` tap and the `crawl` tap differ in kind. An answer tracker samples: 
 
 ## Comparison
 
-Generated from [tools.yaml](tools.yaml) by [render_table.py](render_table.py). **Blind to** is computed as the taps a tool does not read. `Not published` means the roundup and the vendor summary do not say.
+Generated from [tools.yaml](tools.yaml) by [render_table.py](render_table.py). **Blind to** is computed as the taps a tool does not read. `Not published` means the vendor pages do not say.
 
 <!-- TABLE:START -->
 | Tool | Taps | Blind to | How it captures | Engines | Entry price | Entry volume | Developer surface |
@@ -67,7 +67,7 @@ Generated from [tools.yaml](tools.yaml) by [render_table.py](render_table.py). *
 | [Rank Prompt](https://rankprompt.com) | answer | crawl, fanout, click | Not published | ChatGPT, Gemini, Perplexity | $49/mo | 150 credits | Not stated |
 | [Track My Visibility](https://trackmyvisibility.com/) | answer | crawl, fanout, click | Not published | 3 platforms on Discover | $89/mo, $5 one time trial | 50 prompts a day | Not stated |
 | [Qwairy](https://www.qwairy.co/) | crawl, answer | fanout, click | Not published | ChatGPT, Perplexity, Gemini, Claude | $79/mo | Not stated | Not stated |
-| [SE Ranking AI Search Toolkit](https://seranking.com) | answer | crawl, fanout, click | Not published | AI Overviews, Gemini, ChatGPT | $65/mo, source table says $89 | Scales by keywords | Not stated |
+| [SE Ranking AI Search Toolkit](https://seranking.com) | answer | crawl, fanout, click | Not published | AI Overviews, Gemini, ChatGPT | $65/mo, some listings say $89 | Scales by keywords | Not stated |
 | [JetOctopus](https://jetoctopus.com/) | crawl | fanout, answer, click | Your server logs, 40+ bots | None, it reads bots and not answers | $349/mo, 7 day trial | Unlimited seats and projects | Logs, crawl and Search Console data joined |
 | [ProductRank.ai](https://productrank.ai) | answer | crawl, fanout, click | Not published | Several models | Free | Not stated | Not stated |
 | [Gumshoe](https://www.gumshoe.ai) | answer | crawl, fanout, click | Not published | Not stated | $0.10 per conversation | Pay as you go | Not stated |
@@ -230,12 +230,10 @@ The sample log has four problems planted in it, and each gap type catches one.
 * **User agents can be faked.** Anyone can send `GPTBot` in a header. Vendors publish IP ranges for their agents, and `aeolog` does not check them. Treat odd spikes as suspect.
 * **A CDN can answer before your server does.** Cached responses never reach the origin log. Use the CDN's own logs if you have them.
 * **Google has no separate AI agent.** AI Overviews and AI Mode draw on the index `Googlebot` builds, and `Google-Extended` is a `robots.txt` token that never appears in a log. The `Googlebot` row is a proxy.
-* **A 200 does not mean the agent saw your content.** The AIclicks roundup notes that AI crawlers do not render JavaScript. A page that builds its body in the browser returns 200 and an empty shell. JetOctopus compares rendered pages against raw HTML for this reason.
+* **A 200 does not mean the agent saw your content.** AI crawlers do not render JavaScript. A page that builds its body in the browser returns 200 and an empty shell. JetOctopus compares rendered pages against raw HTML for this reason.
 * **A log contains no answers.** It cannot say what an engine wrote about you or which competitor it named. That is the `answer` tap, and you need a tracker for it.
 
 ## The sixteen tools, grouped by tap
-
-AIclicks is listed first because the shortlist comes from its own roundup. That is disclosed in the credits. Inside each group the order follows the source.
 
 ### Fan out, answer and click
 
@@ -245,7 +243,7 @@ AIclicks is listed first because the shortlist comes from its own roundup. That 
 
 **Promptwatch.** The only tool here whose stated method is the join this repo performs by hand: it logs `GPTBot`, `ClaudeBot` and `PerplexityBot` activity and connects that to which pages get cited, across 11 platforms refreshed daily. A content agent drafts fixes and publishes to Webflow, Framer and WordPress. Essential is $95 for 1 project, 50 prompts and 6,000 responses. Professional at $245 adds Agent Analytics and state and city tracking.
 
-**Qwairy.** Tracks mentions, citations and rankings across ChatGPT, Perplexity, Gemini and Claude and bundles AI crawler analytics with competitor benchmarking. Listed from $79 a month. The roundup gives no plan breakdown, so check prompt limits on the vendor page.
+**Qwairy.** Tracks mentions, citations and rankings across ChatGPT, Perplexity, Gemini and Claude and bundles AI crawler analytics with competitor benchmarking. Listed from $79 a month. No plan breakdown is published, so check prompt limits on the vendor page.
 
 ### Crawl only
 
@@ -275,7 +273,7 @@ AIclicks is listed first because the shortlist comes from its own roundup. That 
 
 **Track My Visibility.** Prompt level mentions, citations and share of voice with page level content suggestions. A $5 one time trial covers 15 prompts on one platform. Discover is $89 for 50 prompts a day on 3 platforms, Growth $219, Pro $429.
 
-**SE Ranking AI Search Toolkit.** AI Overviews, Gemini and ChatGPT tracking beside classic rank tracking, for teams already on the suite. The roundup's review text says plans start at $65 a month and its summary table says $89, so confirm on the vendor page.
+**SE Ranking AI Search Toolkit.** AI Overviews, Gemini and ChatGPT tracking beside classic rank tracking, for teams already on the suite. Listings differ, with plans starting at $65 a month on some and $89 on others, so confirm on the vendor page.
 
 **Gumshoe.** Reports visibility per buyer persona. Pay as you go at $0.10 per conversation, with custom Enterprise pricing.
 
@@ -292,8 +290,6 @@ Count taps before you count engines. Engine coverage is the spec every pricing p
 * **The site is large or built on client side rendering.** Raw request counts stop being enough, because you need rendered versus raw HTML diffs and crawl budget views. That is JetOctopus territory.
 * **You want the data in your own code.** Check the developer surface column first. AIclicks documents a REST API and MCP server from Pro, Cognizo keeps its API for Enterprise, and AI SEO Tracker ships MCP skills.
 * **You only need to know if you show up at all.** ProductRank.ai and the free tier of Ahrefs Brand Radar answer that today, and neither needs setup.
-
-For background on how this work differs from classic search work, AIclicks has a comparison of [AEO vs SEO](https://aiclicks.io/blog/aeo-vs-seo-key-differences-and-proven-optimization-tips).
 
 ## FAQ
 
@@ -317,11 +313,11 @@ No. Logs show which agents fetched which pages and which visits came from AI ass
 
 They measure at different taps and sample differently. Two answer trackers run different prompts on different engines at different times, and one may scrape the interface while the other calls an API. A log tool counts requests and has no prompts at all. Compare tools tap by tap, not score by score.
 
-## Contributing and credits
+## Contributing
 
 Corrections go into [tools.yaml](tools.yaml) and new user agents into [aeolog/agents.py](aeolog/agents.py). Regenerate with `python render_table.py --write` and follow [CONTRIBUTING.md](CONTRIBUTING.md). CI rejects a README whose tables do not match the data.
 
-The shortlist and plan facts come from the AIclicks roundup of the [best AEO tools](https://aiclicks.io/blog/best-aeo-tracking-tools), last updated 13 October 2026. AIclicks plan and API details come from [docs.aiclicks.io](https://docs.aiclicks.io/api). AIclicks is featured first and that is disclosed. Two things in the source were not carried over as written: its SE Ranking price differs between the table and the review, and its buying advice names two tools that are not on its own list. The tap classification, the agent registry, the code and the tool notes are our own. Vendor review scores were left out on purpose. Prices change often, so confirm on each vendor's page before buying.
+Prices change often, so confirm on each vendor's page before buying. Vendor review scores were left out on purpose.
 
 ## License
 

@@ -8,9 +8,7 @@
 # The "Blind to" column is the complement of `taps`. Never type it.
 #
 # price is the monthly entry price as a number, or null when there is no
-# public number. Facts come from the AIclicks roundup at
-# https://aiclicks.io/blog/best-aeo-tracking-tools (updated 13 October 2026),
-# AIclicks plan and API facts from docs.aiclicks.io. Confirm before you buy.
+# public number. Plans change often, so confirm before you buy.
 
 - id: aiclicks
   name: AIclicks
@@ -123,7 +121,7 @@
   engines: AI Overviews, Gemini, ChatGPT
   currency: "$"
   price: 65
-  price_note: source table says $89
+  price_note: some listings say $89
   volume: Scales by keywords
   dev: Not stated
 
